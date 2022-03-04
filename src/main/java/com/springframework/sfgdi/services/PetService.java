@@ -1,5 +1,5 @@
 package com.springframework.sfgdi.services;
 
-public class PetService {
+public interface PetService {
     String getPetType();
 }
