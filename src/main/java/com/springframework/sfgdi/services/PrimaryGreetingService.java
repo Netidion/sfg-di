@@ -1,10 +1,9 @@
 package com.springframework.sfgdi.services;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
+/**
+ * Created by Neti on 3/22/2022
+ */
 
-@Service
-@Primary
 public class PrimaryGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {

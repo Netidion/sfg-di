@@ -1,10 +1,9 @@
 package com.springframework.sfgdi.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+/**
+ * Created by Neti on 3/22/2022
+ */
 
-@Service("i18nService")
-@Profile({"ESP","default"})
 public class I18nSpanishGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
