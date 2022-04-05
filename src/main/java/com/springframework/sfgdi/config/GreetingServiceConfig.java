@@ -3,6 +3,10 @@ package com.springframework.sfgdi.config;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import com.springframework.sfgdi.services.*;
+import gr.springframework.pets.CatPetService;
+import gr.springframework.pets.DogPetService;
+import gr.springframework.pets.PetService;
+import gr.springframework.pets.PetServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -51,4 +55,27 @@ public class GreetingServiceConfig {
     SetterInjectedService setterInjectedService(){
         return new SetterInjectedService();
     }
+
+
+    /**
+     * Configuration for package: gr.springframework.pets
+     */
+    @Bean
+    PetServiceFactory petServiceFactory(){
+        return new PetServiceFactory();
+    }
+
+    @Bean
+    @Profile("cat")
+    PetService catPetService (PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    @Profile({"dog", "default"})
+    PetService dogPetService (PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("dog");
+    }
+
+
 }
