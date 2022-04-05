@@ -3,18 +3,15 @@ package com.springframework.sfgdi.config;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import com.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import com.springframework.sfgdi.services.*;
-import gr.springframework.pets.CatPetService;
-import gr.springframework.pets.DogPetService;
 import gr.springframework.pets.PetService;
 import gr.springframework.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 /**
  * Created by Neti on 3/22/2022
  */
+
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -41,10 +38,14 @@ public class GreetingServiceConfig {
         return new I18nSpanishGreetingService();
     }
 
+    /*
     @Bean
+    This bean has been configured in xml: sfgdi-config.xml
+
     ConstructorGreetingService constructorGreetingService (){
         return new ConstructorGreetingService();
     }
+    */
 
     @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService(){
