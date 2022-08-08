@@ -1,8 +1,35 @@
 spring:
   profiles:
-    active: dog, EN, qa
+    active:
+      - dog
+      - EN
+      - dev
 
 com:
   username: yml_username
   password: yml_password
   jdbcurl: yml_jdbcurl
+
+---
+spring:
+  profiles: prod
+com:
+  username: prod_username
+  password: prod_password
+  jdbcurl: prod_jdbcurl
+
+---
+spring:
+  profiles: qa
+com:
+  username: qa_username
+  password: qa_password
+  jdbcurl: qa_jdbcurl
+
+---
+spring:
+  profiles: dev
+com:
+  username: dev_username
+  password: dev_password
+  jdbcurl: dev_jdbcurl
