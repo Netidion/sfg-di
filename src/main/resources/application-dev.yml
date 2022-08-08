@@ -1,0 +1,4 @@
+com:
+  username: dev_username
+  password: dev_password
+  jdbcurl: dev_jdbcurl
